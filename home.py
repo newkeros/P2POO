@@ -1,0 +1,1 @@
+"créer methode pour boucler sur toutes les categories"
