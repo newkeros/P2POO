@@ -77,4 +77,5 @@ class Book:
 
 book1 = Book("https://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html")
 
+book1.handle_book()
 book1.print_book()
