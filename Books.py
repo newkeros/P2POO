@@ -15,8 +15,8 @@ class Book:
         self.upc = ""
         self.title = ""
 
-    def handle_book(self, url):
-        response = request.get(url)
+    def handle_book(self):
+        response = request.get(self.url)
         if response.ok:
             response.encoding = "utf-8"
             self.soup = BeautifulSoup(response.text, "lxml")
@@ -69,12 +69,12 @@ class Book:
         return image_url.get("src").replace("../../", "http://books.toscrape.com/")
 
     def print_book(self):
-        print(f"Title : {self.title}\n UPC : {self.upc}\n Product description : {self.description}\n"
-              f"Price including tax : {self.price_including_tax}\n Price excluding tax : {self.price_without_tax}\n "
+        print(f" Title : {self.title}\n UPC : {self.upc}\n Product description : {self.description}\n"
+              f" Price including tax : {self.price_including_tax}\n Price excluding tax : {self.price_without_tax}\n "
               f"Number available : {self.number_available}\n Category : {self.category}\n Review rating : "
               f"{self.review_rating}\n Image URL : {self.image_url}\n ")
 
 
 book1 = Book("https://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html")
 
-Book.handle_book(print_book(), book1)
+book1.print_book()
