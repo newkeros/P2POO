@@ -1,4 +1,4 @@
-from requests import request
+import requests
 from bs4 import BeautifulSoup
 
 
@@ -16,7 +16,7 @@ class Book:
         self.title = ""
 
     def handle_book(self):
-        response = request.get(self.url)
+        response = requests.get(self.url)
         if response.ok:
             response.encoding = "utf-8"
             self.soup = BeautifulSoup(response.text, "lxml")
@@ -75,6 +75,7 @@ class Book:
               f"{self.review_rating}\n Image URL : {self.image_url}\n ")
 
 
-book1 = Book("https://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html")
+"""book1 = Book("https://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html")
 
-book1.print_book()
+book1.handle_book()
+book1.print_book()"""
