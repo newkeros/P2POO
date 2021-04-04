@@ -33,9 +33,9 @@ class Category:
             book.print_book()
 
 
-"""historical_fiction = Category("https://books.toscrape.com/catalogue/category/books/historical-fiction_4/index.html")
+historical_fiction = Category("https://books.toscrape.com/catalogue/category/books/historical-fiction_4/index.html")
 historical_fiction.handle()
-historical_fiction.run()"""
+historical_fiction.run()
 
 """récuperer tous les liens mettre dans une instance de listemethode run boucle sur tous les livres, créer book handle et print book"
 handle qui recupere tous les liens des categories"""

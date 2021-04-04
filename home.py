@@ -2,16 +2,15 @@
 
 import requests
 from bs4 import BeautifulSoup
-from book import Book
 from category import Category
 
 class Home:
-    def __init__(self, url):
-        self.url = url
+    def __init__(self, website_url):
+        self.url = website_url
         self.categories_url = list()
 
 
-    def categories_url(self):
+    def fetch_categories_url(self):
         response = requests.get(self.url)
         soup = BeautifulSoup(response.text, "lxml")
         for links in soup.findAll("a")[3:53]:
@@ -19,15 +18,17 @@ class Home:
 
     def run(self):
         for url in self.categories_url:
+            """Pour chaque URL des URL de catégories"""
             category = Category(url)
-            book = Book(url)
+            """Définition de la variable category"""
             category.handle()
-            book.handle_book()
-            book.print_book()
+            """Va chercher les Url d'une catégorie"""
+            category.run()
+            """Parse les informations de chaque livre de la catégorie"""
 
 
-home_url = Home("http://books.toscrape.com/")
-home_url.run()
+
+
 
 
 

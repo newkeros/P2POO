@@ -1,5 +1,6 @@
-import book
-from category import Category
+from home import Home
 
 if __name__ == "__main__":
-    print_book()
+    website_url = Home("http://books.toscrape.com/")
+    website_url.fetch_categories_url()
+    website_url.run()
